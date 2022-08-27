@@ -1,0 +1,85 @@
+
+import tkinter
+from tkinter import *
+
+root = tkinter.Tk()
+
+root.geometry("850x650")
+root.title("OLIVER.CO.IN")
+#root.wm_iconbitmap("C:\\aaaa\\face.png")
+root.iconphoto(False,tkinter.PhotoImage(file='C:\\aaaa\\face.png'))
+root.configure(bg="gray")
+
+entry = Label(highlightthickness=10,text = "OLIVER.CO.IN",width=40,relief=RAISED,justify=CENTER,fg="green",)
+entry.config(highlightbackground="red", highlightcolor="red")
+entry.pack(padx=1, pady=1)
+
+
+lab = Label(root,text="This Oliver.co.in in mainly focused the hardware supported ",justify=LEFT,relief= "solid",bd=1).pack(pady=20,side= TOP, anchor="w")
+
+
+
+
+
+canvas = Canvas(root,bg="lightyellow",width=500,height=700,cursor="circle",bd=5,highlightcolor="red",yscrollcommand="yscrollcommand",)
+canvas.pack(padx=50,pady=100)
+
+
+
+canvas.create_text(200, 60, text="oliver.co.in", fill="black", font=('Helvetica 18 bold underline'))
+canvas.pack()
+
+
+
+
+
+def donothing():
+   filewin = Toplevel(root)
+   button = Button(filewin, text="Do nothing button")
+   button.pack()
+
+
+
+
+
+
+
+
+menubar = Menu(root)
+filemenu = Menu(menubar, tearoff=0)
+filemenu.add_command(label="New", command=donothing)
+filemenu.add_command(label="Open", command=donothing)
+filemenu.add_command(label="Save", command=donothing)
+filemenu.add_command(label="Save as...", command=donothing)
+filemenu.add_command(label="Close", command=donothing)
+
+filemenu.add_separator()
+
+filemenu.add_command(label="Exit", command=root.quit)
+menubar.add_cascade(label="File", menu=filemenu)
+editmenu = Menu(menubar, tearoff=0)
+editmenu.add_command(label="Undo", command=donothing)
+
+editmenu.add_separator()
+
+editmenu.add_command(label="Cut", command=donothing)
+editmenu.add_command(label="Copy", command=donothing)
+editmenu.add_command(label="Paste", command=donothing)
+editmenu.add_command(label="Delete", command=donothing)
+editmenu.add_command(label="Select All", command=donothing)
+
+menubar.add_cascade(label="Edit", menu=editmenu)
+helpmenu = Menu(menubar, tearoff=0)
+helpmenu.add_command(label="Help Index", command=donothing)
+helpmenu.add_command(label="About...", command=donothing)
+menubar.add_cascade(label="Help", menu=helpmenu)
+
+menubar.add_cascade(label="window",menu="window" ,command=donothing)
+
+root.config(menu=menubar)
+
+
+
+
+
+root.mainloop()
